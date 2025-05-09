@@ -1,0 +1,20 @@
+{
+  "name": "cadastro-cidadao-app",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cadastro-cidadao-app": "file:",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mssql": "^11.0.1",
+    "oracledb": "^6.8.0"
+  },
+  "description": ""
+}

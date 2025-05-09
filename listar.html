@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lista de Beneficiários</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <h2>Lista de Beneficiários</h2>
+  <table id="tabelaBeneficiarios">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Data Nascimento</th>
+        <th>Endereço</th>
+        <th>Telefone</th>
+        <th>Observações</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    async function carregarBeneficiarios() {
+      const resposta = await fetch("http://localhost:3000/beneficiarios");
+      const beneficiarios = await resposta.json();
+
+      const tbody = document.querySelector("#tabelaBeneficiarios tbody");
+      tbody.innerHTML = "";
+
+      beneficiarios.forEach(b => {
+        const linha = `
+          <tr>
+            <td>${b.nome}</td>
+            <td>${b.cpf}</td>
+            <td>${b.data_nascimento}</td>
+            <td>${b.endereco}</td>
+            <td>${b.telefone}</td>
+            <td>${b.observacoes}</td>
+          </tr>`;
+        tbody.innerHTML += linha;
+      });
+    }
+
+    carregarBeneficiarios();
+  </script>
+</body>
+</html>
